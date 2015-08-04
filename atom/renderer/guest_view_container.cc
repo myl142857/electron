@@ -46,12 +46,11 @@ void GuestViewContainer::SetElementInstanceID(int element_instance_id) {
       std::make_pair(element_instance_id, this));
 }
 
-void GuestViewContainer::DidResizeElement(const gfx::Size& old_size,
-                                          const gfx::Size& new_size) {
+void GuestViewContainer::DidResizeElement(const gfx::Size& new_size) {
   if (element_resize_callback_.is_null())
     return;
 
-  element_resize_callback_.Run(old_size, new_size);
+  element_resize_callback_.Run(new_size);
 }
 
 }  // namespace atom
